@@ -1,0 +1,76 @@
+﻿@model IEnumerable<AutoVentasHiken.Models.Vehiculo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.combustible.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.marca.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stockvehiculo.modelo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipoVehiculo.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.combustible.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.marca.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stockvehiculo.disponible)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipoVehiculo.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_Vehiculo }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_Vehiculo }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_Vehiculo })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Session["nombreUsuario"] != null) 
+{ 
+    <div class="page-header">
+        <h1>DASHBOARD<small> Panel de Administracion</small></h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="..." alt="...">
+                <div class="caption">
+                    <h3>Compras</h3>
+                    <p>En esta opcion puede manejar las compras</p>
+                    <p>@Html.ActionLink("Ver Compras", "Index", "Compra", new { area = "" }, new {@class = "btn-btn-primary"})</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="..." alt="...">
+                <div class="caption">
+                    <h3>Vehiculo</h3>
+                    <p>En esta opcion puede manejar los vehiculos</p>
+                    <p>@Html.ActionLink("Ver Vehiculos", "Index", "Vehiculo", new { area = "" }, new { @class = "btn-btn-primary" })</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                <img src="..." alt="...">
+                <div class="caption">
+                    <h3>Usuario</h3>
+                    <p>En esta opcion puede manejar los usuarios.</p>
+                    <p>@Html.ActionLink("Ver Usuarios", "Index", "Usuario", new { area = "" }, new { @class = "btn-btn-primary" })</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="page-header">
+        <h1>Inicie sesion</h1>
+    </div>
+}
+

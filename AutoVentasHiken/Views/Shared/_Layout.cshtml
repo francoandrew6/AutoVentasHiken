@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - AutoHiken</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("AutoHiken", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            @if (Session["idUsuario"] != null)
+            {
+                if (Session["idRol"].ToString().Equals("1"))
+                {
+                    <div class="navbar-left">
+                        <ul class="nav navbar-nav navbar-left">
+                            <li>@Html.ActionLink("Vehiculo", "Index", "Vehiculo")</li>
+                            <li>@Html.ActionLink("Usuario", "Index", "Usuario")</li>
+                            <li>@Html.ActionLink("Compra", "Index", "Compra")</li>
+                            <li>@Html.ActionLink("Marca", "Index", "Marca")</li>
+                            <li>@Html.ActionLink("Combustible", "Index", "Combustible")</li>
+                            <li>@Html.ActionLink("TipoVehiculo", "Index", "TipoVehiculo")</li>
+                        </ul>
+                    </div>
+                }
+                    <div class="navbar-right">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+
+                            <li role="presentation" class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                    @Session["nombreUsuario"]<span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Logout", "Logout", "Cuenta")</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+            }
+            
+            @if(Session["idUsuario"] == null)
+            { 
+            <div class="navbar-right">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Login", "Login", "Cuenta")</li>
+                </ul>
+            </div>
+            }
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - AutoHiken</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

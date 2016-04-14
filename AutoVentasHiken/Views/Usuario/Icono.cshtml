@@ -1,0 +1,47 @@
+﻿@model IEnumerable<AutoVentasHiken.Models.Usuario>
+
+@{
+    ViewBag.Title = "Icono";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Icono</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo Usuario", "Create") @Html.ActionLink("Lista", "Index") 
+</p>
+<div class="row">
+    @foreach (var item in Model)
+{
+    <div class="table-bordered">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                @*@if (Model.archivos.Any(arch => arch.tipo == AutoVentasHiken.Models.FileType.Imagen))
+                    {
+                        <dt>
+                            Imagen
+                        </dt>
+                        <dd>
+                            <img src="~/Archivo/ObtenerArchivo?id=@Model.archivos.First(f => f.tipo == AutoVentasHiken.Models.FileType.Imagen).id_Archivo" alt="imagen" />
+                        </dd>
+                    }*@
+                <div class="caption">
+                    <h6>Rol: @Html.DisplayFor(modelItem => item.rol.nombre)</h6>
+                    <h6>Nombre: @Html.DisplayFor(modelItem => item.nombre)</h6>
+                    <h6>Correo: @Html.DisplayFor(modelItem => item.correo)</h6>
+                    <h6>Telefono. @Html.DisplayFor(modelItem => item.telefono)</h6>
+                    <h6>Direccion. @Html.DisplayFor(modelItem => item.direccion)</h6>
+                    <h6>Contraseña. @Html.DisplayFor(modelItem => item.contrasena)</h6>
+                    <h6>Comparar Contraseña. @Html.DisplayFor(modelItem => item.compararContraseña)</h6>
+
+                    @Html.ActionLink("Editar", "Edit", new { id = item.id_Usuario }) |
+                    @Html.ActionLink("Detalles", "Details", new { id = item.id_Usuario }) |
+                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id_Usuario })
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+    </div>
+

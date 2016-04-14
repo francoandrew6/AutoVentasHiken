@@ -1,0 +1,91 @@
+﻿@model AutoVentasHiken.Models.Usuario
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Desea Eliminar al Usuario?</h3>
+<div>
+    <h4>Usuario</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        @if (Model.archivos.Any(arch => arch.tipo == AutoVentasHiken.Models.FileType.Imagen))
+        {
+            <dt>
+                Imagen
+            </dt>
+            <dd>
+                <img width="128" height="128" src="~/Archivo/ObtenerArchivo?id=@Model.archivos.First(f => f.tipo == AutoVentasHiken.Models.FileType.Imagen).id_Archivo" alt="imagen" />
+            </dd>
+        }
+        <dt>
+            @Html.DisplayNameFor(model => model.rol.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rol.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contrasena)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contrasena)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.compararContraseña)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.compararContraseña)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
