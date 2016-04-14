@@ -7,7 +7,7 @@ namespace AutoVentasHiken.Models
 {
     public class StockVehiculo
     {
-        [Key]
+        [Key]//hola
         public int id_StockVehiculo { get; set; }
         //ID el cual analiza
         
